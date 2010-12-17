@@ -1,25 +1,44 @@
-use strict;
-use warnings;
+=pod
 
-package Pod::Weaver::Section::WarrantyDisclaimer;
+=head1 NAME
 
-use Moose;
-with 'Pod::Weaver::Role::Section';
-# ABSTRACT: add a standard DISCLAIMER OF WARRANTY section (for your Perl module)
+Pod::Weaver::Section::WarrantyDisclaimer - add a standard DISCLAIMER OF WARRANTY section (for your Perl module)
 
-use Moose::Autobox;
+=head1 VERSION
 
-use Pod::Elemental::Element::Pod5::Ordinary;
-use Pod::Elemental::Element::Nested;
+version 0.103510
+
+=head1 SYNOPSIS
+
+In F<weaver.ini>, probably near the end:
+
+    [WarrantyDisclaimer]
+
+=head1 OVERVIEW
+
+This section plugin will add the standard B<DISCLAIMER OF WARRANTY>
+section to your POD. See the bottom of this module's documentation for
+the content. of this section.
 
 =for Pod::Coverage weave_section
 
-=cut
+=head1 INSTALLATION
 
-sub weave_section {
-    my ($self, $document) = @_;
+See perlmodinstall for information and options on installing Perl modules.
 
-    my $content = <<'EOF';
+=head1 AUTHOR
+
+Ryan C. Thompson <rct@thompsonclan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Ryan C. Thompson.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 DISCLAIMER OF WARRANTY
+
 BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
 FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT
 WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER
@@ -40,34 +59,4 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
 DAMAGES.
-EOF
 
-    my $warranty_para = Pod::Elemental::Element::Nested->new({
-        command  => 'head1',
-        content  => 'DISCLAIMER OF WARRANTY',
-        children => [
-            Pod::Elemental::Element::Pod5::Ordinary->new({ content => $content }),
-        ],
-    });
-
-    $document->children->push($warranty_para);
-}
-
-1;
-
-__END__
-=pod
-
-=head1 SYNOPSIS
-
-In F<weaver.ini>, probably near the end:
-
-    [WarrantyDisclaimer]
-
-=head1 OVERVIEW
-
-This section plugin will add the standard B<DISCLAIMER OF WARRANTY>
-section to your POD. See the bottom of this module's documentation for
-the content. of this section.
-
-=cut
