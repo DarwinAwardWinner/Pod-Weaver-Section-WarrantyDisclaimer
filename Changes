@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
+
+0.103511  2010-12-17 03:43:59 EST5EDT
     - Fixed typos in documentation. No code changes.
 
 0.103510  2010-12-17 02:14:49 EST5EDT
