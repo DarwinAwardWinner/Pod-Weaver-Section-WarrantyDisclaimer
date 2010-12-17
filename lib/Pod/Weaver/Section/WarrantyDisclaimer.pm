@@ -5,7 +5,7 @@ package Pod::Weaver::Section::WarrantyDisclaimer;
 
 use Moose;
 with 'Pod::Weaver::Role::Section';
-# ABSTRACT: add a standard DISCLAIMER OF WARRANTY section (for your Perl module)
+# ABSTRACT: Add a standard DISCLAIMER OF WARRANTY section (for your Perl module)
 
 use Moose::Autobox;
 
@@ -68,6 +68,6 @@ In F<weaver.ini>, probably near the end:
 
 This section plugin will add the standard B<DISCLAIMER OF WARRANTY>
 section to your POD. See the bottom of this module's documentation for
-the content. of this section.
+the content of this section.
 
 =cut
