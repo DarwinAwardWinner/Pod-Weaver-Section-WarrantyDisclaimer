@@ -101,6 +101,8 @@ corresponding module, so that the warranty text in your modules will
 match that of the license. If a warranty disclaimer module is not
 provided for your license of choice, you can easily create one by
 subclassing this class and overriding the methods
-C<warranty_section_title> and C<warranty_text>.
+C<warranty_section_title> and C<warranty_text>. Alternatively, you can
+simply use C<[WarrantyDisclaimer::Custom]> and then use the C<title>
+and C<text> options to specify your custom warranty.
 
 =cut
