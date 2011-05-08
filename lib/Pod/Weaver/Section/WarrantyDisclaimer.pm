@@ -12,14 +12,27 @@ use Moose::Autobox;
 use Pod::Elemental::Element::Pod5::Ordinary;
 use Pod::Elemental::Element::Nested;
 
-=for Pod::Coverage weave_section
+=method warranty_section_title
+
+This method provides the text to be used as the title of the warranty
+section. It can be overridden by subclasses to provide different
+warranties.
 
 =cut
 
-sub weave_section {
-    my ($self, $document) = @_;
+sub warranty_section_title {
+    return 'DISCLAIMER OF WARRANTY';
+}
 
-    my $content = <<'EOF';
+=method warranty_text
+
+This method provides the text to be used in the warranty section. It
+can be overridden by subclasses to provide different warranties.
+
+=cut
+
+sub warranty_text {
+    return <<'EOF';
 BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
 FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT
 WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER
@@ -41,12 +54,22 @@ FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
 DAMAGES.
 EOF
+}
+
+=for Pod::Coverage weave_section
+
+=cut
+
+sub weave_section {
+    my ($self, $document) = @_;
 
     my $warranty_para = Pod::Elemental::Element::Nested->new({
         command  => 'head1',
-        content  => 'DISCLAIMER OF WARRANTY',
+        content  => $self->warranty_section_title(),
         children => [
-            Pod::Elemental::Element::Pod5::Ordinary->new({ content => $content }),
+            Pod::Elemental::Element::Pod5::Ordinary->new({
+                content => $self->warranty_text()
+            }),
         ],
     });
 
@@ -66,8 +89,18 @@ In F<weaver.ini>, probably near the end:
 
 =head1 OVERVIEW
 
-This section plugin will add the standard B<DISCLAIMER OF WARRANTY>
+This section plugin will add a standard B<DISCLAIMER OF WARRANTY>
 section to your POD. See the bottom of this module's documentation for
 the content of this section.
+
+Note that there are several other warranty texts available that
+correspond to the text used in various open-source licenses, such as
+Pod::Weaver::Section::WarrantyDisclaimer::GPL2. If your code's license
+has a specific warranty clause, you should try to use the
+corresponding module, so that the warranty text in your modules will
+match that of the license. If a warranty disclaimer module is not
+provided for your license of choice, you can easily create one by
+subclassing this class and overriding the methods
+C<warranty_section_title> and C<warranty_text>.
 
 =cut
