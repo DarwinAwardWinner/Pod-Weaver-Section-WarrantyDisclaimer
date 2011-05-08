@@ -95,8 +95,8 @@ the content of this section.
 
 Note that there are several other warranty texts available that
 correspond to the text used in various open-source licenses, such as
-Pod::Weaver::Section::WarrantyDisclaimer::GPL2. If your code's license
-has a specific warranty clause, you should try to use the
+L<Pod::Weaver::Section::WarrantyDisclaimer::GPL2>. If your code's
+license has a specific warranty clause, you should try to use the
 corresponding module, so that the warranty text in your modules will
 match that of the license. If a warranty disclaimer module is not
 provided for your license of choice, you can easily create one by
