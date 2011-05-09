@@ -2,6 +2,17 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
 
+0.111290  2011-05-08 18:20:06 PST8PDT
+    - Option to use warranty text from different licenses, including a
+      custom option. Thanks to apoc, who provided an intial
+      implementation using a configuration option rather than
+      subclasses.
+    - Support can be added for new warranties by subclassing the main
+      module and overriding two methods
+    - Note that the main module will continue to work in exactly the
+      same way as it has. Users are not required to select a specific
+      subclass.
+
 0.103511  2010-12-17 03:43:59 EST5EDT
     - Fixed typos in documentation. No code changes.
 
