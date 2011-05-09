@@ -6,7 +6,7 @@ use Moose;
 extends "Pod::Weaver::Section::WarrantyDisclaimer";
 # ABSTRACT: Specify a custom warranty section
 
-sub mvp_multivalue_args { qw( custom_warranty ) }
+sub mvp_multivalue_args { qw( text ) }
 
 =attr title
 
