@@ -78,10 +78,10 @@ In F<weaver.ini>, probably near the end:
 
 =head1 OVERVIEW
 
-This section plugin will add a B<DISCLAIMER OF WARRANTY> section to
-your POD, containing the warranty text from the GNU General Public
-License, Version 3. You should use this to weave your warranty section
-if your code uses this license.
+This section plugin will add a warranty section to your POD, with a
+custom title and text. You can use this to add your own license's
+warranty to your code if you are using a license for which a warranty
+moduel is not already available.
 
 If not specified, the default title and text are the same as if you
 just put `[WarrantyDisclaimer]` in weaver.ini.
