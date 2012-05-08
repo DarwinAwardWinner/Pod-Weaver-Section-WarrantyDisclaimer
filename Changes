@@ -2,6 +2,9 @@ Revision history for Perl extension {{$dist->name}}
 
 {{$NEXT}}
 
+0.121290  2012-05-08 13:12:10 America/Los_Angeles
+    - Fix a POD test failure. No changes to code.
+
 0.111290  2011-05-08 18:20:06 PST8PDT
     - Option to use warranty text from different licenses, including a
       custom option. Thanks to apoc, who provided an intial
